@@ -264,7 +264,7 @@ def generate_hw03(question2, question3):
     response = agent_with_chat_history.invoke({"input":question3}).get('output')
 
     get_response_format = isHolidyExist(response)
-    print(get_response_format)
+    # print(get_response_format)
 
     examples = [
             {"input": """```json
