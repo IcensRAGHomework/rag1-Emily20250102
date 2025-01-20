@@ -105,10 +105,7 @@ def generate_hw01(question):
         ]
     )
     response2 = llm.invoke(prompt2.invoke(input = response)).content
-<<<<<<< HEAD
     print(response2)
-=======
->>>>>>> 74c74bb80bf1aca268adc0e470e9a7e5d0ac8c01
     return response2
 
     
@@ -202,10 +199,7 @@ def generate_hw02(question):
         ]
     )
     response2 = getLLM().invoke(prompt2.invoke(input = get_response_format)).content
-<<<<<<< HEAD
     print(response2)
-=======
->>>>>>> 74c74bb80bf1aca268adc0e470e9a7e5d0ac8c01
     return response2
 
 # answer2 = generate_hw02("2024年台灣10月紀念日有哪些?")
