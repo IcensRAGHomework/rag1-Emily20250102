@@ -39,7 +39,7 @@ def getLLM():
 
     return llm
 
-def get_returnHolidyStruct():
+def get_returnHw01HolidyStruct():
     response_schemas = [
         ResponseSchema(
             name="Result",
@@ -62,7 +62,7 @@ def get_returnHolidyStruct():
 def generate_hw01(question):
     llm = getLLM()
     
-    get_response_format = get_returnHolidyStruct()
+    get_response_format = get_returnHw01HolidyStruct()
 
     prompt = ChatPromptTemplate.from_messages([
         ("system","使用台灣語言並回答問題的所有答案,{response_format}"),
@@ -99,7 +99,7 @@ def generate_hw01(question):
     )
     prompt2 = ChatPromptTemplate.from_messages(
         [
-            ("system", "將我提供的文字進行處理"),
+            ("system", "將我提供的文字進行處理，結果不要出現```與json"),
             few_shot_prompt,
             ("human", "{input}"),
         ]
@@ -108,12 +108,13 @@ def generate_hw01(question):
     print(response2)
     return response2
 
+
     
-# answer = generate_hw01("2024年台灣10月紀念日有哪些?")
+answer = generate_hw01("2024年台灣10月紀念日有哪些?")
 # print(answer)
 
 
-def get_returnHolidyStruct(data: str):
+def get_returnHw02HolidyStruct(data: str):
     response_schemas = [
         ResponseSchema(
             name="Result",
@@ -165,7 +166,7 @@ def generate_hw02(question):
     agent_executor = AgentExecutor(agent=agent, tools=tools)
     response = agent_executor.invoke({"input":question}).get('output')
 
-    get_response_format = get_returnHolidyStruct(response)
+    get_response_format = get_returnHw02HolidyStruct(response)
 
     examples = [
         {"input": """```json
